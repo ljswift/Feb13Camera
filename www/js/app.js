@@ -1,5 +1,11 @@
 // Ionic Starter App
 
+// device ready event (to use this, change cordova to 2.0.0 in browser address bar)
+
+document.addEventListener("deviceready", function(){
+  alert(JSON.stringify(navigator.camera));
+}, false);
+
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -14,6 +20,8 @@ angular.module('starter', ['ionic'])
 */
 
 .controller("takePicture", function($scope, $http){
+  $scope.model = {};
+  $scope.model.imageSource = "img/ionic.png";
   $scope.takePhoto = function(){
     alert("Taking photo");
     navigator.camera.getPicture(function(imageData){
